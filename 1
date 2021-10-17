@@ -1,0 +1,46 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import array
+
+f = open("001.txt","r")
+
+n = f.readline()
+n = int(n)
+k = list()
+
+for i in range(n):
+    a = f.readline()
+    b = a.rstrip(a[-1])
+    s = b.split(" ")
+
+    k.append(s[0])
+    k.append(s[1])
+
+
+#print(e)
+#print(k)
+
+fig, ax = plt.subplots()
+
+#plt.plot(550, 35)
+
+for l in range(0, 2*n, 2):
+    k[l+1] = float(k[l+1])
+    k[l] = float(k[l])
+    y = np.array(k[l+1])
+    x = np.array(k[l])
+    
+    print(x, y)
+    print(type(x))
+
+
+    ax.set_xticks(np.arange(-50, 600, 50))
+    ax.set_yticks(np.arange(-30, 40, 5))
+    n = str(n)
+    plt.title('Number of point:' + n)
+    plt.plot(x, y, ':o')
+
+plt.grid()
+plt.show ()
+
